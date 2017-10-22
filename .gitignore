@@ -18,3 +18,7 @@ var/
 
 # Serverless directories
 .serverless
+
+# Serverless plugins
+package-lock.json
+node_modules/
