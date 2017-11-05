@@ -51,8 +51,7 @@ resources:
     LoginEventS3Bucket:
       Type: AWS::S3::Bucket
       Properties:
-        # 63 character limit, no uppercase
-        BucketName: ${self:service}-login-events-#{AWS::AccountId}-${self:provider.stage}
+        AccessControl: Private
 
     WriteEventToS3:
       Type: AWS::IAM::Role
