@@ -82,5 +82,3 @@ resources:
                           - Arn
                         - '*'
 
-plugins:
-  - serverless-pseudo-parameters
