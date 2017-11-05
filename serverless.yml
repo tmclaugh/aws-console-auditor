@@ -8,16 +8,15 @@ service: aws-console-auditor
 
 provider:
   name: aws
-  runtime: python3.6
-  # Helpful for identifying resoruces. See also aws:cloudformation:stack-name
-  # which includes the stage name (STAGE tag) too.
-  stackTags:
-    serverless:service: ${self:service}
-
 # you can overwrite defaults here
 # Override these via command line --stage and --region.
 #  stage: dev
 #  region: us-east-1
+
+  # Helpful for identifying resoruces. See also aws:cloudformation:stack-name
+  # which includes the stage name (STAGE tag) too.
+  stackTags:
+    serverless:service: ${self:service}
 
 # you can define service wide environment variables here
   environment:
@@ -32,6 +31,7 @@ functions:
   write-event-to-s3:
     handler: handlers/write-event-to-s3.handler
     description: "Write login event to S3"
+    runtime: python3.6
     memorySize: 128
     timeout: 15
     role: WriteEventToS3
